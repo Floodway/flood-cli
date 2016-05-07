@@ -1,0 +1,34 @@
+{
+  "name": "flood-cli",
+  "version": "1.0.1",
+  "description": "Floodway CLI script",
+  "main": "./build/core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Floodway/flood-cli.git"
+  },
+  "keywords": [
+    "Floodway",
+    "CLI"
+  ],
+  "author": "ElectricCookie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Floodway/flood-cli/issues"
+  },
+  "bin": {
+    "flood": "./build/core.js"
+  },
+  "homepage": "https://github.com/Floodway/flood-cli#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-banner": "^0.1.3",
+    "gulp-coffee": "^2.3.2"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
+}
