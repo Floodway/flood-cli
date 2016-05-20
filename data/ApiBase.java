@@ -228,6 +228,7 @@ public abstract class ApiBase {
     public <T> void request(Request<T> request){
         Log.d("Request:",request.buildRequest());
 
+        requests.add(request);
 
         if(isConnected()){
             try{
@@ -239,7 +240,7 @@ public abstract class ApiBase {
             }
         }
 
-        requests.add(request);
+        
         pendingRequests.add(request.buildRequest());
 
 
