@@ -11,37 +11,40 @@ program
   .parse(process.argv)
 
 
-eventServer = new Server()
+eventServer = new Server( ->
+  if program.m? and program.m != false
 
-if program.m? and program.m != false
-
-  sourcePath = path.join(process.cwd(),program.m)
-
-else
-  try
-    packageJson  = require(path.join(process.cwd(),"./package.json"))
-  catch e
-    throw new Error("No package json found!")
-
-  if packageJson?
-
-    index = packageJson["main"]
-    sourcePath = path.join(process.cwd(),index)
+    sourcePath = path.join(process.cwd(),program.m)
 
   else
+    try
+      packageJson  = require(path.join(process.cwd(),"./package.json"))
+    catch e
+      throw new Error("No package json found!")
 
-    throw new Error("No package json found!")
+    if packageJson?
 
-# Load the main file
+      index = packageJson["main"]
+      sourcePath = path.join(process.cwd(),index)
 
-if program.c? and program.c != false
+    else
 
-  config = require(path.join(process.cwd(),program.c))
+      throw new Error("No package json found!")
+
+  # Load the main file
+
+  if program.c? and program.c != false
+
+    config = require(path.join(process.cwd(),program.c))
 
 
-floodProgram = require(sourcePath)
+  floodProgram = require(sourcePath)
 
-if config? then floodProgram.config = config
+  if config? then floodProgram.config = config
 
-floodProgram.start()
+  floodProgram.start()
+
+
+)
+
 

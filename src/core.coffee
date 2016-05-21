@@ -1,6 +1,8 @@
 chalk = require("chalk")
 program = require("commander")
 
+process.argv[1] = __filename
+
 program
   .version(require("../package.json")["version"])
   .command("init <name> ","create a new Floodway Project")

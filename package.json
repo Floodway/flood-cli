@@ -31,7 +31,7 @@
   "dependencies": {
     "chalk": "^1.1.3",
     "commander": "^2.9.0",
-    "flood-events": "^1.1.0",
+    "flood-events": "^1.1.2",
     "is_js": "^0.8.0"
   }
 }
